@@ -34,3 +34,37 @@ AOS.init({
     easing: 'ease-in-out',
     once: true
 });
+
+// Mendapatkan semua elemen navigasi dan section
+const navLinks = document.querySelectorAll('.scroll-to');
+const sections = document.querySelectorAll('section');
+
+// Fungsi untuk mengatur tombol aktif
+function activateLink() {
+    let currentSection = ''; // Untuk menyimpan section yang sedang aktif
+
+    // Memeriksa setiap section apakah sudah dalam jangkauan viewport
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+
+        // Menentukan apakah section sedang terlihat di viewport
+        if (window.pageYOffset >= sectionTop - sectionHeight / 3 && window.pageYOffset < sectionTop + sectionHeight) {
+            currentSection = section.getAttribute('id');
+        }
+    });
+
+    // Menambahkan kelas 'active' pada link yang sesuai dengan section yang aktif
+    navLinks.forEach(link => {
+        link.classList.remove('active');  // Menghapus kelas aktif dari semua link
+        if (link.getAttribute('href').includes(currentSection)) {
+            link.classList.add('active');  // Menambahkan kelas aktif pada link yang sesuai
+        }
+    });
+}
+
+// Event listener untuk scroll
+window.addEventListener('scroll', activateLink);
+
+// Menjalankan sekali di awal untuk memastikan jika halaman sudah dalam posisi scroll tertentu
+activateLink();
