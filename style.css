@@ -440,15 +440,6 @@ footer a {
         text-align: center;
     }
 
-    .hero-text,
-    .intro-text,
-    .intro-text p,
-    .opening p,
-    .closing p {
-        text-align: center;
-        margin: 0 auto;
-    }
-
     h2 {
         font-size: 3rem;
         text-align: center;
@@ -459,8 +450,10 @@ footer a {
         height: auto;
         display: block;
         margin: 0 auto;
+        box-sizing: border-box;
     }
     
+    .hero p,
     .intro-text p,
     .opening p,
     .closing p,
@@ -472,7 +465,7 @@ footer a {
         width: 100%;
         box-sizing: border-box;
         word-break: break-word;
-        margin: 0;
+        margin: 0 auto;
     }
     
     nav {
@@ -585,14 +578,24 @@ footer a {
     .photo-grid,
     .photo-double-grid {
         display: grid;
-        grid-template-columns: 1fr;
-        gap: 1rem;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
         justify-items: center;
+        gap: 1.2rem;
+        align-items: start;
     }
 
+    .photo-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        max-width: 100%;
+    }
+    
     .photo-item img {
         width: 90%;
-        max-width: 140px;
+        max-width: 180px;
         height: auto;
         margin: 0 auto;
     }
@@ -604,6 +607,8 @@ footer a {
         text-align: center;
         width: 100%;
         margin: 0px;
+        margin-top: 0.5rem;
+        max-width: 180px;
     }
 
     .photo-caption-dosdonts {
