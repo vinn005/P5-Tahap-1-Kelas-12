@@ -302,7 +302,7 @@ nav a.active {
 .photo-caption-dosdonts {
     font-size: 1.05rem;
     color: black;
-    margin-top: -7px;
+    margin-top: -5px;
     width: 50%;
     font-weight: bold;
     font-style: italic;
@@ -427,56 +427,116 @@ footer a {
     background-size: cover;
 }
 
-/* Responsive di HP */
+/* Responsive Design */
 @media (max-width: 768px) {
-
-    .photo-grid img,
-    .photo-double-grid img {
-        max-width: 100%;
-    }
-
-    .photo-grid,
-    .photo-double-grid {
+    /* Navbar */
+    nav ul {
         flex-direction: column;
         align-items: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    /* Hero Section */
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    /* Team Profiles */
+    .team-profiles {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile-card {
+        width: 120px;
+        margin-bottom: 20px;
+    }
+
+    /* Intro Images */
+    .intro-images img {
+        width: 80%;
+    }
+
+    /* Text and Section Layout */
+    .intro-text p {
+        font-size: 1rem;
+    }
+
+    .solution-block {
+        margin-bottom: 20px;
     }
 
     .single-photo img {
-        width: 90%;
+        width: 100%;
     }
 
-    .team-profiles {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .intro-images img {
-        width: 90%;
-        max-width: 400px;
+    .photo-grid img {
+        width: 32%;
+        margin: 1%;
     }
 
     .dos-donts-heading {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
+        display: block;
+        text-align: center;
+    }
+
+    .photo-double-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .photo-item {
+        width: 48%;
+        margin-bottom: 10px;
     }
 }
 
+/* Mobile Styles */
 @media (max-width: 480px) {
-    .team-profiles {
-        grid-template-columns: 1fr;
+    body {
+        font-size: 0.9rem;
+    }
+
+    nav .logo {
+        font-size: 1.2rem;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .intro-text p {
+        font-size: 1rem;
+    }
+
+    .profile-card {
+        width: 100px;
+        margin-bottom: 15px;
     }
 
     .intro-images img {
         width: 100%;
-        max-width: 350px;
     }
 
-    .profile-card img {
-        width: 120px;
-        height: 120px;
+    .photo-grid img {
+        width: 48%;
+        margin: 1%;
     }
 
-    .profile-card p {
-        font-size: 0.95rem;
+    .photo-item {
+        width: 100%;
+        margin-bottom: 10px;
     }
 }
