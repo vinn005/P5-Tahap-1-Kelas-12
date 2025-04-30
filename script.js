@@ -35,36 +35,36 @@ AOS.init({
     once: true
 });
 
-// Mendapatkan semua elemen navigasi dan section
-const navLinks = document.querySelectorAll('.scroll-to');
-const sections = document.querySelectorAll('section');
+const navLinks = document.querySelectorAll("nav ul li a");
+const heroSection = document.querySelector(".hero");
+const introSection = document.querySelector("#opening");
+const activitiesSection = document.querySelector("#activities");
+const closingSection = document.querySelector("#closing");
 
-// Fungsi untuk mengatur tombol aktif
 function activateLink() {
-    let currentSection = ''; // Untuk menyimpan section yang sedang aktif
+    const scrollY = window.pageYOffset;
 
-    // Memeriksa setiap section apakah sudah dalam jangkauan viewport
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.offsetHeight;
+    // Reset semua link
+    navLinks.forEach(link => link.classList.remove("active"));
 
-        // Menentukan apakah section sedang terlihat di viewport
-        if (window.pageYOffset >= sectionTop - sectionHeight / 3 && window.pageYOffset < sectionTop + sectionHeight) {
-            currentSection = section.getAttribute('id');
-        }
-    });
+    // Titik batas awal
+    const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
 
-    // Menambahkan kelas 'active' pada link yang sesuai dengan section yang aktif
-    navLinks.forEach(link => {
-        link.classList.remove('active');  // Menghapus kelas aktif dari semua link
-        if (link.getAttribute('href').includes(currentSection)) {
-            link.classList.add('active');  // Menambahkan kelas aktif pada link yang sesuai
-        }
-    });
+    if (scrollY < heroBottom - 50) {
+        // ✅ Tidak ada tombol aktif saat masih di hero
+        return;
+    } else if (scrollY >= heroBottom - 50 && scrollY < activitiesSection.offsetTop - 100) {
+        // ✅ Introduction aktif setelah lewat hero sampai sebelum activities
+        document.querySelector('a[href="#opening"]').classList.add("active");
+    } else if (scrollY >= activitiesSection.offsetTop - 100 && scrollY < closingSection.offsetTop - 100) {
+        // ✅ Solutions aktif
+        document.querySelector('a[href="#activities"]').classList.add("active");
+    } else {
+        // ✅ Conclusion aktif
+        document.querySelector('a[href="#closing"]').classList.add("active");
+    }
 }
 
-// Event listener untuk scroll
-window.addEventListener('scroll', activateLink);
-
-// Menjalankan sekali di awal untuk memastikan jika halaman sudah dalam posisi scroll tertentu
+// Jalankan fungsi saat scroll dan load awal
+window.addEventListener("scroll", activateLink);
 activateLink();
