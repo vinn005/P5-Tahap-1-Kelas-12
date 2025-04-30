@@ -295,12 +295,6 @@ nav ul li a.active {
     }
 }
 
-.photo-caption {
-    font-size: 1.1rem;
-    color: black;
-    margin-top: 10px;
-}
-
 .photo-caption-dosdonts {
     font-size: 1.05rem;
     color: black;
@@ -390,11 +384,11 @@ nav ul li a.active {
 }
 
 .photo-caption {
+    font-size: 1.1rem;
+    color: black;
     width: 50%;
     text-align: center;
     padding: 10px;
-    font-size: 1.1rem;
-    color: #333;
     margin-top: 10px;
     border-radius: 5px;
     margin-bottom: 0;
@@ -523,8 +517,6 @@ footer a {
     .hero p {
         font-size: 1.1rem;
     }
-
-    
 
     .intro-text p,
     section p {
