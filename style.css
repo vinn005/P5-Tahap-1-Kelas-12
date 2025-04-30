@@ -432,13 +432,15 @@ footer a {
 /* Responsive Design */
 @media (max-width: 768px) {
 
-    html {
-        font-size: 15px;
+    html, body {
+        width: 100%;
+        overflow-x: hidden;
     }
 
-    body {
-        width: auto;
+    section, .hero, .intro, .closing, footer {
+        padding: 1.5rem 1rem;
         margin: 0 auto;
+        max-width: 100%;
     }
 
     nav {
