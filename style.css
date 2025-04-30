@@ -86,12 +86,14 @@ nav ul li a {
 nav ul li a:hover {
     color: black;
     border-color: black;
+    background-color: white;
 }
 
-nav a.active {
+nav ul li a.active {
     color: black;
     font-weight: bold;
     border-color: black;
+    background-color: white;
 }
 
 .activities,
